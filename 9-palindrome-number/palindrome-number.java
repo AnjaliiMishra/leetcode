@@ -1,30 +1,15 @@
 class Solution {
-    public boolean isPalindrome(int x)
-     {
-        int num=x;
-        int original=num;
-        int revno=0;
+    public boolean isPalindrome(int x) {
+        int original = x;
+        if (x < 0) return false; // negative numbers can't be palindrome
 
-        while (num!=0)
-        {
-            int ld=num%10;
-            revno=revno*10+ld;
-            num=num/10;
-        } 
-        if (original<0)
-        {
-          return false;
+        int rev = 0;
+        while (x > 0) {
+            int a = x % 10;
+            rev = (rev * 10) + a;
+            x = x / 10;
         }
-        else if (revno == original)
-        {
-             return true;
-        }
-        else
-        {
-             return false;
-        }
-     }
+
+        return rev == original;
+    }
 }
-
-        
-    
